@@ -10,7 +10,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import {provider, Provider} from 'react-redux';
 import {createStore, combineReducers} from 'redux'
 
-import url from './reducers/url.reducer';
+import image from './reducers/url.reducer';
 
 import Home from './components/Home'
 import Gallery from './components/Gallery'
@@ -18,7 +18,7 @@ import Picture from './components/Picture'
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
-const store = createStore(combineReducers( {url}) )
+const store = createStore(combineReducers( {image}) )
 
 function TabButton() {
   return (

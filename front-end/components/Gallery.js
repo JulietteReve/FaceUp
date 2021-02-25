@@ -11,35 +11,28 @@ import {connect} from 'react-redux';
 
 function Gallery(props) {
 
-
-    console.log('urlList', props.urlList)
     return (
         <View style={{paddingTop: 50}}>
             <ScrollView>
                     <Text style={styles.titleText}>Your Gallery</Text>
-                    {props.urlList.length > 0 ?
-                        props.urlList.map((element, i) => {
-                            console.log(element)
+                    {props.image.length > 0 ?
+                        props.image.map((element, i) => {
                             return(
                                 <Card key={i}>
-                                    <Card.Image source={{uri: element}}></Card.Image>
-                                    <Badge value="Homme" badgeStyle={{backgroundColor: '#69C746'}}/>
-                                    <Badge value="70 ans" badgeStyle={{backgroundColor: '#69C746'}}/>
-                                    <Badge value="barbe" badgeStyle={{backgroundColor: '#69C746'}}/>
-                                    <Badge value="joyeux !" badgeStyle={{backgroundColor: '#69C746'}}/>
-                                    <Badge value="cheveux gris" badgeStyle={{backgroundColor: '#69C746'}}/>
+                                    <Card.Image source={{uri: element.url}}></Card.Image>
+                                    <Badge value={`${element.age} years old`} badgeStyle={{backgroundColor: '#03071e'}}/>
+                                    <Badge value={element.gender} badgeStyle={{backgroundColor: '#370617'}}/>
+                                    <Badge value={element.emotion} badgeStyle={{backgroundColor: '#6a040f'}}/>
+                                    <Badge value={`is bald : ${element.bald}`} badgeStyle={{backgroundColor: '#9d0208'}}/>
+                                    <Badge value={`Hair color: ${element.hairColor}`} badgeStyle={{backgroundColor: '#d00000'}}/>
+                                    <Badge value={element.glasses} badgeStyle={{backgroundColor: '#dc2f02'}}/>
+                                    <Badge value={element.beard} badgeStyle={{backgroundColor: '#e85d04'}}/>
+                                    <Badge value={element.moustache} badgeStyle={{backgroundColor: '#f48c06'}}/>
+                                    <Badge value={element.sideburns} badgeStyle={{backgroundColor: '#219ebc'}}/>
                                 </Card>   
                             )
                         })
                     : null } 
-                    <Card>
-                        <Card.Image source={require("../assets/picture-1.jpg")}></Card.Image>
-                        <Badge value="Homme" badgeStyle={{backgroundColor: '#69C746'}}/>
-                        <Badge value="70 ans" badgeStyle={{backgroundColor: '#69C746'}}/>
-                        <Badge value="barbe" badgeStyle={{backgroundColor: '#69C746'}}/>
-                        <Badge value="joyeux !" badgeStyle={{backgroundColor: '#69C746'}}/>
-                        <Badge value="cheveux gris" badgeStyle={{backgroundColor: '#69C746'}}/>
-                    </Card>   
             </ScrollView>
         </View>
     );
@@ -54,7 +47,7 @@ function Gallery(props) {
   });
 
 function mapStateToProps(state){
-    return {urlList: state.url}
+    return {image: state.image}
 }
 
 export default connect(

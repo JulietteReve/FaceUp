@@ -1,8 +1,8 @@
-export default function(urlList = [], action){ 
+export default function(imageList = [], action){ 
     if(action.type == 'addImage'){
-        var urlListCopy = [...urlList, action.urlAdded]
-        return urlListCopy
+        var imageListCopy = [...imageList, action.imageAdded]
+        return imageListCopy
     } else {
-        return urlList;
+        return imageList;
     }
 }
