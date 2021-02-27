@@ -13,7 +13,7 @@ import {connect} from 'react-redux';
 function Picture(props) {
 
   const [hasPermission, setHasPermission] = useState(null);
-  const [type, setType] = useState(Camera.Constants.Type.back);
+  const [type, setType] = useState(Camera.Constants.Type.front);
   const [flash, setFlash] = useState(Camera.Constants.FlashMode.off);
   const [visible, setVisible] = useState(false);
   const [urlList, setUrlList] = useState([]);
